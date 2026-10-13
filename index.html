@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanche Trindade - Cardápio Digital</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* HEADER / TOPO */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 4px solid #ffcc00;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffcc00;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* SEÇÃO CARDÁPIO */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #ff3333;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-cardapio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARDS DOS LANCHES */
+        .card-lanche {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2d2d2d;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-lanche:hover {
+            transform: translateY(-5px);
+            border-color: #ffcc00;
+        }
+
+        .img-lanche {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #2a2a2a;
+        }
+
+        .conteudo-lanche {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .nome-lanche {
+            font-size: 1.3rem;
+            color: #ffcc00;
+            margin-bottom: 8px;
+        }
+
+        .ingredientes {
+            font-size: 0.95rem;
+            color: #b3b3b3;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2ecc71;
+            margin-bottom: 15px;
+        }
+
+        /* BOTÕES */
+        .btn-whats {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-whats:hover {
+            background-color: #20ba5a;
+        }
+
+        /* BOTÃO FIXO / DESTAQUE FINAL */
+        .cta-final {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            border: 2px dashed #ffcc00;
+        }
+
+        .cta-final h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-grande {
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0b0b0b;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Lanche Trindade</h1>
+        <p>🍔 Os melhores lanches com o sabor que você merece!</p>
+    </header>
+
+    <!-- CARDÁPIO -->
+    <main class="container">
+        <h2 class="section-title">Nosso Cardápio</h2>
+        
+        <div class="grid-cardapio">
+            
+            <!-- LANCHE 1 -->
+            <div class="card-lanche">
+                <img src="https://unsplash.com" alt="Trindade Burger" class="img-lanche">
+                <div class="conteudo-lanche">
+                    <div>
+                        <h3 class="nome-lanche">Trindade Burger</h3>
+                        <p class="ingredientes">Pão artesanal, blend bovino de 150g, muito queijo cheddar derretido, alface, tomate e maionese da casa.</p>
+                    </div>
+                    <div>
+                        <p class="preco">R$ 28,90</p>
+                        <a href="https://wa.me." target="_blank" class="btn-whats">Pedir no WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LANCHE 2 -->
+            <div class="card-lanche">
+                <img src="https://unsplash.com" alt="Trindade Duplo Bacon" class="img-lanche">
+                <div class="conteudo-lanche">
+                    <div>
+                        <h3 class="nome-lanche">Trindade Duplo Bacon</h3>
+                        <p class="ingredientes">Dois blends de 150g, o dobro de queijo prato, fatias crocantes de bacon e molho barbecue.</p>
+                    </div>
+                    <div>
+                        <p class="preco">R$ 36,90</p>
+                        <a href="https://wa.me." target="_blank" class="btn-whats">Pedir no WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LANCHE 3 -->
+            <div class="card-lanche">
+                <img src="https://unsplash.com" alt="Especial da Casa" class="img-lanche">
+                <div class="conteudo-lanche">
+                    <div>
+                        <h3 class="nome-lanche">Especial Trindade</h3>
+                        <p class="ingredientes">Blend bovino 150g, ovo frito na chapa, presunto, queijo, cebola caramelizada e maionese verde.</p>
+                    </div>
+                    <div>
+                        <p class="preco">R$ 32,90</p>
+                        <a href="https://wa.me." target="_blank" class="btn-whats">Pedir no WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CHAMADA DE AÇÃO FINAL -->
+        <div class="cta-final">
+            <h3>Quer ver o cardápio completo ou fazer uma montagem especial?</h3>
+            <p style="color: #b3b3b3; margin-bottom: 20px;">Fale diretamente com nossa equipe pelo WhatsApp</p>
+            <a href="https://wa.me." target="_blank" class="btn-whats btn-grande">💬 Iniciar Atendimento</a>
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Lanche Trindade - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
